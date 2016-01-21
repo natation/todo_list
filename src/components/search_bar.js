@@ -4,19 +4,25 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
     this._onTextChange = this._onTextChange.bind(this);
-    this.state = { term: 'Starting Value' };
+    this.state = { term: '' };
   }
   _onTextChange(e) {
-    this.setState({ term: e.target.value });
+    const term = e.target.value;
+    this.props.onSearchTermChange(term);
+    this.setState({ term });
   }
   render() {
     return (
-      <div>
+      <div className="search-bar">
         <input onChange={this._onTextChange} value={this.state.term} />
-        Value of the input: {this.state.term}
       </div>
     );
   }
 }
+
+SearchBar.propTypes = {
+  onSearchTermChange: React.Proptypes.string.isRequired,
+};
+
 
 export default SearchBar;
