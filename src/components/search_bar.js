@@ -11,7 +11,7 @@ class SearchBar extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="meow">
         <input onChange={this._onTextChange} value={this.state.term} />
         Value of the input: {this.state.term}
       </div>
